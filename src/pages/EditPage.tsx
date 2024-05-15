@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { TodoProps, TodosContextType } from '../utils/types';
 import { TodosContext } from '../context/TodosContext';
-import BTN from '../components/BTN/BTN';
 
 const EditPage = () => {
   const { isLoading, editTodo } = useContext(TodosContext) as TodosContextType;
@@ -21,7 +20,6 @@ const EditPage = () => {
   }, []);
   return (
     <div className='create-page'>
-    
       <form>
         <div className='group'>
           <label htmlFor='title'>Title</label>

@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { TodosContext } from '../context/TodosContext';
 import { TodoProps, TodosContextType } from '../utils/types';
-import BTN from '../components/BTN/BTN';
+
 
 const CreatePage = () => {
   const { isLoading, addTodo } = useContext(TodosContext) as TodosContextType;
