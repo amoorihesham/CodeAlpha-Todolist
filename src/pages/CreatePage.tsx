@@ -20,19 +20,7 @@ const CreatePage = () => {
   };
   return (
     <div className='create-page'>
-      <div className='add-button'>
-        <BTN
-          title='Home'
-          color='#4caf50'
-          to='/'
-        />
-        <BTN
-          title='Create'
-          outline={true}
-          color='#4caf50'
-          to='/create'
-        />
-      </div>
+     
       <form onSubmit={handleSubmit}>
         <div className='group'>
           <label htmlFor='title'>Title</label>

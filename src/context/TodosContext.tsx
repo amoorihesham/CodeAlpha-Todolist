@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { TodoProps, TodosContextType } from '../utils/types';
+import toast from 'react-hot-toast';
 
 export const TodosContext = createContext<TodosContextType | null>(null);
 
@@ -23,9 +24,11 @@ export const TodosContextProvider: React.FC<{ children: React.ReactNode }> = ({ 
       savedTodos.push(newTodo);
       localStorage.setItem('todos', JSON.stringify(savedTodos));
       setTodos(savedTodos);
+      toast.success('Saved...!');
     } else {
       localStorage.setItem('todos', JSON.stringify([newTodo]));
       setTodos([newTodo]);
+      toast.success('Saved...!');
     }
     setIsLoading(false);
   };
@@ -37,11 +40,13 @@ export const TodosContextProvider: React.FC<{ children: React.ReactNode }> = ({ 
     });
     localStorage.setItem('todos', JSON.stringify(deleteHere));
     setTodos(deleteHere);
+    toast.success('Saved...!');
   };
   const deleteTodo = (id: string | undefined) => {
     const restTodos = todos.filter((todo: TodoProps) => todo.id !== id);
     localStorage.setItem('todos', JSON.stringify(restTodos));
     setTodos(restTodos);
+    toast.success('Saved...!');
   };
   const toggleCompleted = (id: string | undefined) => {
     const [todo] = todos.filter((todo: TodoProps) => todo.id === id);
@@ -50,6 +55,7 @@ export const TodosContextProvider: React.FC<{ children: React.ReactNode }> = ({ 
     restTodos.push(todo);
     localStorage.setItem('todos', JSON.stringify(restTodos));
     setTodos(restTodos);
+    toast.success('Saved...!');
   };
   return <TodosContext.Provider value={{ isLoading, todos, getUserTodos, addTodo, editTodo, deleteTodo, toggleCompleted }}>{children}</TodosContext.Provider>;
 };

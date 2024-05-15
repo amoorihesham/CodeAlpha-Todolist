@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import BTN from '../components/BTN/BTN';
 import Todo from '../components/Todo-Card/Todo';
 import { TodosContextType } from '../utils/types';
 import { TodosContext } from '../context/TodosContext';
@@ -13,19 +12,6 @@ const Home = () => {
   } else {
     return (
       <div className='home-page'>
-        <div className='add-button'>
-          <BTN
-            title='Home'
-            color='#4caf50'
-            to='/ceate'
-          />
-          <BTN
-            title='Create'
-            outline={true}
-            color='#4caf50'
-            to='/create'
-          />
-        </div>
         <div className='todos-container'>
           {todos?.length ? (
             todos?.map((todo) => (
